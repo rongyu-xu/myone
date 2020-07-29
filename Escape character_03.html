@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- &bdquo;
+    &quot;
+    &Epsilon;
+    &yen; -->
+    <script>
+        // var str = 'abc"中国"BCD'  //输出  abc"中国"BCD
+        // var str = "abc'最优秀'ABC"   //输出  abc'最优秀'ABC
+        // var str = 'abc'生活苦难'ABC' 
+        // var str = "abc"生活苦难"ABC"  
+        //很清晰的可以看出以上两行代码报错，可以知道单引号和双引号不可以同时使用，也就是内双外单，外单内双的由来
+        // 那么，我就是想同时使用同一个引号，怎么办？
+        // 那就要使用转义字符  \
+        var str = 'abc\'你知道转义字符吗？\'ABC'  //输出  abc'你知道转义字符吗？'ABC
+        console.log(str);
+
+        // 总结:简单来说,就是遇到一些特殊字符,不能直接使用,但是又需要直接将其渲染出来,就需要用到转义
+        // https://www.cnblogs.com/GaoAnLee/p/10676823.html  有关转义字符的博客，这篇还是很nice的
+
+        
+    </script>
+</body>
+</html>

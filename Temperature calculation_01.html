@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  气温表示方式有两种：摄氏度和华氏度
+        //  华氏度=9/5*摄氏度+32   (公式表示的就是摄氏度和华氏度之间的关系)
+        //  请使用代码完成：让用户输入任意的摄氏度，得到对应的华氏度。
+
+        // 1.最简单的写法
+        var num = prompt('请输入当前温度')
+        var tel = 9/5 * num + 32;
+        alert(tel);
+
+        // 2.简单优化
+        var num = parseFloat(prompt('请输入当前温度'))
+        var tel = 9/5 * num + 32;
+        alert(tel);
+        
+
+        // https://www.jb51.net/article/86391.htm  这是研究中文数字转阿拉伯数字的博客
+    </script>
+    
+</body>
+</html>

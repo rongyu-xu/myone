@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.实现两个变量的值交换，找到一个中间变量,通过该中间变量来进行交换，但是如果增加中间变量的话，容易
+        // 增加内存，不是很合理
+        // var a = 1;
+        // var b = 2;      
+        // var c = a;
+        // a = b;
+        // b = c;
+        // console.log(a);
+        // console.log(b);
+        
+        // 那么如何不使用中间变量就实现交换？
+        
+        // 2.可以使用算术运算进行交换,但是这种做法会存在变量数据溢出的问题，因为js存储数字的精度范围是       
+        // -253 到 253，要是变量值过大，就容易溢出
+        // var a = 11;
+        // var b = 22;
+        // a = a + b;
+        // b = a - b;  // b = a + b - a = a
+        // a = a - b;  // a = a + b - a = b
+        // console.log(a,b);
+        
+        // 3.在es6中，有一种结构复制，可以轻松的将两个值进行交换,貌似没有缺点。hhh
+        // var a = 111;
+        // var b = 222;
+        // [a,b] = [b,a]
+        // console.log(a,b);
+        
+        // 4.利用数组特性进行叫换,这里要注意顺序问题，因为没有重新定义变量，如果先求出a = a[1];那么此时变量
+        // a = b;就不是一个数组，那么b = a[0]就是underfind，所以要先赋值b，再赋值a
+        var a = 1111;
+        var b = 2222;
+        a = [a,b];
+        a = a[1];
+        b = a[0]
+        console.log(a,b);
+        
+
+        // 总结：第一种和第二种方法只适合对number类型的变量进行数据交换，
+        //       第三种和第四种方法适合所有的类型的数据交换
+    </script>
+</body>
+</html>

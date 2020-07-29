@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 扩展：+ 的三种用法:
+            // 1.作为数字正负号，在数字字符串前面放+，会有隐式转换
+            var num = +'123'
+            console.log(typeof num);  //number
+            // 2.作为运算的加减符号
+            var a = 1;
+            var b = 2 ;
+            console.log(a + b);  // 3
+            // 3.如果是带有字符串，则是作为字符串拼接的符号
+            var str = '1';
+            var a = 2;
+            console.log(str + a);  // 这是字符串拼接的结果 12
+        
+    </script>
+</body>
+</html>
