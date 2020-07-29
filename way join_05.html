@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['i','can','be','better']
+        console.log(arr.join());  //输出i,can,be,better
+        console.log(arr.join('-')); //输出i-can-be-better
+        console.log(arr.join('')); // 输出icanbebetter
+        var str = ['下次',99,'满意']
+        console.log(str.join());  //输出下次,99,满意
+        console.log(str.join(''));  //输出下次99满意
+        
+
+        // 通过以上测试可以知道，join()方法是数组的方法，可以将数组转换为字符串，
+        // 并且可以通过指定的分隔符进行分隔
+        // 如果不指定分隔符,则默认为 , 号分隔
+        // 如果为一个空引号,则表示中间不分隔
+    </script>
+</body>
+</html>
