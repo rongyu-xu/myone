@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 这几天一直被分支问题困扰，现在简单梳理一下
+        // 先说说一些分支的简单命令：
+                // + git branch   // 查看当前所处的分支
+                // + git branch 分支名 // 创建新分支
+                // + git checkout 分支名   // 切换到指定分支
+                // + git checkout -b 分支名  // 快速创建一个分支并切换到当前分支
+                // + git merge 分支名  // 合并分支
+                // + git branch -d 分支名 // 删除分支
+                // + git push -u origin 分支名 // 将分支推送到远程仓库
+        // 分支命令很有很多，不记得可以多查询文档
+
+        // 分支之间是互不干扰的，你在那个分支修改代码，我在这个分支修改代码，这些都是互不干扰，而且没有提交合并之前，也不会影响master分支的内容，如果有新需求，就在master分支上重新创建一个新分支，甚至乎可以在当前分支上再创建分支，也就是分支的分支，
+        //     要理解这么几个概念：
+                    // + 每一个分支都是有自己的暂存区和工作区，
+                    // + master分支上的代码不一定是最新的，但一定是最稳定的，最稳定的意思也就是代码功能完整，没有什么bug，不是最新，是因为有可能有人正在拉在新取分支增功能代码
+                    // + git 规则，在哪个分支上进行提交，就将内容提交到该分支上的仓库中
+        
+        // 如果在工作中，你在develop1分支上新增代码，还没修改完成，又切换到develop2分支上修改了，而且修改的是同一个代码，那么怎么处理？
+        //     + 答：如果及早发现这个问题，就可以先保存develop2分支上的修改，使用git stash save “save message”，保存现在的修改，然后再跳回develop1分支，其实正常来说，不会遇到太复杂的情况，至于git stash save “save message”，就是另外一个知识点了。
+        
+        //     可以看一下这篇博客：
+        //     // https://blog.csdn.net/qq_34801506/article/details/80493691?utm_medium=distribute.pc_relevant.none-task-blog-baidujs-1&spm=1001.2101.3001.4242
+        //     不过引入了另外一个知识点，就是在develop1分支下，新建的文件没有被追踪的时候，如果此时切换到另外一个分支develop2，那么在develop1分支上修改的代码，会被携带到develop2上，也就是develop2分支上有develop1分支上内容,
+
+        // 今天还碰到一个问题，commit提交之后，不知道怎么删除了之前的分支内容，但是最后解决了，大概理解了一下，虽然没懂为啥会误删分支，但是可以记住一个好的方法，如下：
+        //     + 先执行 git reflog
+        //     + 然后执行 git reset --hard hash  //hash就是执行git reflog 之后会出现的值，选择你想回到的地方，填入对应的hash值
+        // 这个方法和回退版本其实是相差无几，不过这种方法可能更加清晰明白
+
+
+        // 总结：其实git分支内容并不会太难，只要细心一点，就不会有太复杂的情况出现，要是深究里面的内容，那就不是我现在的水平能达到的
+    </script>
+    
+</body>
+</html>
