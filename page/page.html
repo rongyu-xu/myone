@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .new-main {
+            width: 40%;
+            margin: 100px auto 0;
+            padding: 15px;
+            background-color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .pagination-main {
+            text-align: center;
+        }
+
+        .pagination {
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .item-title {
+            font-weight: 800;
+            font-size: 18px;
+            padding-bottom: 3px;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .item-content {
+            color: #aaa;
+            padding-bottom: 10px;
+            background-color: antiquewhite;
+        }
+
+        .pagination a {
+            background-color: #999;
+            color: #fff;
+            padding: 1px 6px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .pagination a.active {
+            background-color: #85D1FF;
+        }
+        .pagination div {
+            display: inline-table;
+        }
+        .pagination div input {
+            width: 50px;
+        }
+        .page-prve,
+        .page-next {
+            background-color: aquamarine;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+        }
+        .page-prve,
+        .page-next:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <!-- 新闻盒子 -->
+        <div class="new-main">
+
+        </div>
+        <!-- 分页容器 -->
+        <div class="pagination-main">
+            <span class="page-prve">上一页</span>
+            <div class="pagination">
+                <a href="javascript:;" class="active">1</a>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <div>跳转至：<input type="text">&nbsp;页</div>
+            </div>
+            <span class="page-next">下一页</span>
+        </div>
+    </div>
+    <script src="./分页功能.js"></script>
+</body>
+
+</html>
