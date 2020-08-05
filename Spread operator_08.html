@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 这两天老是碰到扩展运算符，但又不是很会，特此来这记录一下
+        // 扩展运算符是ES6新语法，可以将数组或者对象转为用逗号分隔的参数序列
+        var arr1 = [1,2,3]
+        console.log(...arr1);  //输出1 2 3 ，逗号没有是因为console.log这个机制会把逗号解析成变量分隔符        
+        var arr2 = ['you','can','be','better']  
+        console.log(...arr2)   //输出 you can be better
+        var obj1 = {
+                name : 'wenda',
+                age : 22
+            }
+            var obj2 = {
+                sex : '男',
+                hobby : 'sing'
+            }
+            var obj3 = {...obj1,...obj2}
+            console.log(obj3);  //输出 {name: "wenda", age: 22, sex: "男", hobby: "sing"}
+        // 由此就可以看出，所谓的参数序列就很好理解了
+
+        // 扩展运算符的其它运用：
+            // + 合并数组
+                var arr3 = [1,2]
+                var arr4 = [3,4]
+                var arr5 = [...arr3,...arr4]
+                console.log(arr5);  // 输出 [1, 2, 3, 4]
+                // 数组中有一个push方法，结合push方法和扩展运算符也可以进行数组合并
+                arr3.push(...arr4)  // 将arr4的值赋值给arr3
+                console.log(arr3);  // 输出 [1, 2, 3, 4]
+
+            // + 将伪数组转换为真数组
+                // 我们都知道利用 var obj= document.getElementsByClassName('')等获取的元素是一个伪数组，
+                // var newobj = [...obj] //可以通过这个方式将伪数组转换为真数组
+                // var oneobj = Array.from(obj)  //通过这个方式也可以将伪数组转换为真数组
+                // Array.form() 有两个参数，第一个是伪数组，第二个是回调函数，可以对数组中的值进行处理
+                    var arr6 = {
+                        "0":"1",
+                        "1":'2',
+                        "length":2
+                    }
+                    var arr7 = Array.from(arr6,function(item){
+                        return item * 2
+                    })
+                    console.log(arr7);  //输出[2, 4]
+        
+        // 写到这里，就顺带将学过的几个ES6新语法都再次记录一下
+            // + find()方法 用于查找数组中符合条件的第一组成员，如果没有找到就返回underfind
+                var arr8 = [
+                    {
+                        id : 1,
+                        name : 'zs',
+                    },
+                    {
+                        id : 2,
+                        name : 'ls'
+                    }
+                ]
+                var targe =  arr8.find(function(item,index){  //item为数组中的每一个成员，index为当前的索引值
+                    return item.id == 2
+                })
+                console.log(targe); //输出{id: 2, name: "ls"}
+            // + findIndex() 方法，找到第一个符合条件的数组成员   位置，没有就返回-1
+            // + includes() 方法，表示某个数组是否包含某个值，返回布尔值
+                console.log([1,2,3].includes(2)); // 输出 true
+            
+
+            // String扩展方法
+                // + repect() 方法，将原字符串重复n次，并返回一个新字符串
+                        var str = 'hi man';
+                        console.log(str.repeat(2))  // 输出 'hi manhi man'
+                // + startWith() 方法，表示参数字符串是否在原字符串的头部，返回布尔值
+                        console.log(str.startsWith('hi'));  //输出 true
+                // + startEnd() 方法，表示参数字符串是否在原字符串的尾部，返回布尔值
+                        console.log(str.startsEnd('hi'));  // 输出false
+    </script>
+   
+</body>
+</html>
