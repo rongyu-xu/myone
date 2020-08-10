@@ -63,103 +63,147 @@ let newsData = [
 let newMain = document.getElementsByClassName('new-main')[0];
 let paginationMain = document.getElementsByClassName('.pagination-main')[0];
 let pageA = document.getElementsByTagName('a');
-
+let total = document.getElementById('total');   //获取显示数据总条数的盒子
 let pagesize = 3;  //自定义每页显示3条数据
 let newDataRender = [] //每页渲染的数据
 let p = 1;  // 根据p的值显示每页对应的数据
-let count = Math.ceil(newsData.length / 3) //计算出一共有多少页
+let count = Math.ceil(newsData.length / pagesize) //计算出一共有多少页
+let prvePage = document.getElementsByClassName('page-prve')[0];
+let nextPage = document.getElementsByClassName('page-next')[0];
+let select = document.getElementById('test');
+let ulBox = document.getElementsByClassName('pagination')[0];
+
+// 8.下拉选择每页展示条数
+select.onchange = function () {
+    // console.log(this.value);
+    p = 1
+    pagesize = this.value;
+    count = Math.ceil(newsData.length / pagesize)
+    render()
+    renderLi()
+}
+
 
 // 3.渲染初始化页面
-function render () {
+function render() {
+    // p = 1
     newMain.innerHTML = '';
-    newDataRender= newsData.slice((p-1)*pagesize,p*pagesize); //从(p-pagesize)*pagesize，开始截取数组，到p*pagesize结束，
-    newDataRender.forEach(function(item,index){
+    newDataRender = newsData.slice((p - 1) * pagesize, p * pagesize); //从(p-pagesize)*pagesize，开始截取数组，到p*pagesize结束，
+    newDataRender.forEach(function (item, index) {
         newMain.innerHTML += `
         <div class="item">
             <div class="item-title">${item.title}</div>
             <div class="item-content">${item.content}</div>
         </div>
-        `   
+        `
     })
+    
 }
 render()
+// 渲染中间按钮
+function renderLi () {
+    ulBox.innerHTML = ''
+    for (let i = 0; i < count; i++) {
+        ulBox.innerHTML += `
+            <li><a href="javascript:;">${i+1}</a></li>            
+        `
+        if(i===0){            
+            pageA[0].setAttribute('class','active')
+        }
+    }
+    console.log(pageA[0].getAttribute('class') === 'active');
+    
+    cli()
+}
+renderLi ()
 
 // 4.点击页面标签的时候，实现跳转
-for(let i = 0;i < pageA.length;i++) {
-    pageA[i].onclick = function(){
-        for(let j = 0;j < pageA.length;j++) {
-            pageA[j].className = '';
+function cli () {
+    for (let i = 0; i < pageA.length; i++) {
+        pageA[i].onclick = function () {
+            for (let j = 0; j < pageA.length; j++) {
+                pageA[j].className = '';
+            }
+            this.className = 'active';
+            p = i + 1;
+            render()
         }
-        this.className = 'active';
-        p = i+1;
-        render()
     }
-}   
-
+}
+cli()
 // 5.输入值跳转到对应值
 let input = document.getElementsByTagName('input')[0];
 input.onkeyup = function (e) {
-    let value = this.value.trim();  
+    let value = this.value.trim();
     let reg = /^[0-9]+$/
-    if(e.keyCode == 13 && value !== '') {
-        if(reg.test(value)){
-            if(value > count) {
+    if (e.keyCode == 13 && value !== '') {
+        if (reg.test(value)) {
+            if (value > count) {
                 alert('当前共只有' + count + '页');
                 return;
-            }else {
+            } else {
                 p = value;
-                render();                
+                console.log(p);
+
+                render();
                 input.value = '';
-                for(let i = 0;i < pageA.length;i++) {
-                    pageA[i].className = '';                   
+                for (let i = 0; i < pageA.length; i++) {
+                    pageA[i].className = '';
                 }
-                if(value <= pageA.length){
-                    pageA[Number(value)-1].className = 'active'
+                if (value <= pageA.length) {
+                    pageA[Number(value) - 1].className = 'active'
                     // console.log(value);                   
                 }
-            }            
-        }else{
+            }
+        } else {
             alert('请输入正确数据');
             return;
         }
-        
+
     }
 
 }
-  
+
 // 6.点击上一页下一页实现切换
-let prvePage = document.getElementsByClassName('page-prve')[0];
-let nextPage = document.getElementsByClassName('page-next')[0];
+
 // 封装一个函数，实现点击切换前三页高亮的效果
 function targetClass() {
-    for(let j=0;j<pageA.length;j++){
+    for (let j = 0; j < pageA.length; j++) {
         pageA[j].classList.remove('active');
     }
-    if(p>=4) {
+    if (p >= count+1) {
         return
-    }else{
-        pageA[p-1].classList.add('active');
+    } else {
+        pageA[p - 1].classList.add('active');
     }
-    
+
 }
 prvePage.onclick = function () {
-    if(p<=1){
+    if (p <= 1) {
         return;
-    }else{
+    } else {
         p -= 1;
         targetClass()
         render();
+
     }
 }
 nextPage.onclick = function () {
-    if(p>=count){
+    if (p >= count) {
         return;
-    }else{
+    } else {
         p += 1;
         targetClass()
         render();
+        
+
     }
 }
+// 7.显示数据总条数
+total.innerHTML = '共' + newsData.length + '条'
+
+
+
 
 
 
