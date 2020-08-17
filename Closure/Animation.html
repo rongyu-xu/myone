@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 60px;
+      height: 20px;
+      border: 1px solid rgb(204, 204, 204);
+    }
+  </style>
+</head>
+<body>
+  <div>你走</div>
+  <div>我不走</div>
+  <script>
+    var divs = document.querySelectorAll('div');
+    var i = null
+    // divs.forEach(function(item){
+      
+    //   item.addEventListener('click',function(){
+    //     let num = 1
+    //     clearInterval(i)
+    //     i = setInterval(function() {
+    //       item.style.marginLeft = num++ + 'px' 
+    //     }, 10);
+        
+    //   })
+    // })
+    // 如果num定义在这个作用域内的话，每点击一次，盒子都会从头开始，因为每点击一次，就会产生一个新的环境，
+    // 而新环境的num依旧是等于1，不会被其他环境所影响，所以会从头开始，下面进行改造:
+   
+    divs.forEach(function(item){
+      let num = 1
+      item.addEventListener('click',function(){       
+        clearInterval(i)
+        i = setInterval(function() {
+          item.style.marginLeft = num++ + 'px' 
+        }, 10);
+        
+      })
+    })
+    // 将num定义在点击事件的父作用域里，虽然点击一次产生一个新的作用域，但是num值一直是保存改变后的值，所以就不会从头开始
+    // 当然，点击一个盒子，另一个盒子会停止，是因为清空了定时器，点击盒子1，再点击盒子2的时候，盒子1就没有定时器了
+  </script>
+</body>
+</html>

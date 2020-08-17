@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // for(let i = 0;i < 3;i++) {
+    //   setTimeout(function(){
+    //     console.log(i)
+    //   },1000)
+    // }  // 此时打印 0 1 2 
+    // 这个循环可以拆分为：
+    // setTimeout(function(){
+    //     console.log(0)
+    //   },1000)
+    // setTimeout(function(){
+    //     console.log(1)
+    //   },1000)
+    // setTimeout(function(){
+    //     console.log(2)
+    //   },1000)
+    // 这就是let的一个特性，每循环一次，就会产生一个新的块级作用域
+
+    // 改造一下上面的循环：
+    for(var i = 0;i < 3;i++) {
+      (function(num) {
+        setTimeout(function(){
+          console.log(num)
+        })
+      })(i)
+    }
+    // var是不会产生块级作用域，但是给了一个自调用函数，而且每次函数的参数都不同，也就是说函数在一直调用，
+    // 函数一调用就会产生一个函数作用域，故而打印出来会是 0 1 2
+  </script>
+</body>
+</html>

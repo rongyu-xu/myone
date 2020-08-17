@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [1,25,4,23,8,6,12,41]
+    // let my = arr.filter(function(item) {
+    //   return item >= 10 && item <= 30
+    // })
+    // console.log(my)   // [25,23,12]
+
+    // 对以上代码进行改造一下：
+      function between (a,b) {
+        return function (v) {
+          return v >= a && v <= b
+        }
+      }   
+      let my = arr.filter(between(10,30))
+      console.log(my)   // [25,23,12]
+      //这个方法是将between函数作为filter的回调函数，利用闭包的特性，v内部的作用域可以访问到参数a和b，
+      // 当between函数执行的时候，可以拆解为：
+      // arr.filter(function(v){
+      //   return v >= a && v <= b
+      // })  这个就是原filter的回调函数没有区别了，但是这样改造可以通过between的两个参数很快的对数组进行筛选
+  </script>
+</body>
+</html>

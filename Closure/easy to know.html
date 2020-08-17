@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div desc="wenda">加油</div>
+    <div desc="like">人生</div>
+    <script>
+        // 我们要理解这么一个概念，当一个块级作用域内的变量没有用处之后，会被系统自动清除，那么此时别的作用域内的
+        // 执行代码自然不能拿到这个变量，但是如果这个变量还有用处的时候，该变量就不会被清除
+
+        // function counter () {
+        //     let count = 0;
+        //     return function () {
+        //         return count++
+        //     }
+        // }
+        // const countValue = counter()
+        // // console.dir(countValue);
+        // console.log(countValue());       
+        // console.log(countValue());
+        // console.log(countValue());
+        
+
+        // let divs = document.querySelectorAll('div');
+        // divs.forEach(item => {
+        //     let desc = item.getAttribute('desc')
+        //     item.addEventListener('click',function(){
+        //         console.log(desc)
+        //         //此时如果我们打印item，就会得到相应的dom元素，可是我们只要里面的属性值，而此时因为闭包的存在，
+        //         //必然会把这个dom元素也保存下来，就容易造成占用内存的问题，而解决这个问题就是将item点击过后赋值为null
+        //         console.log(item)
+        //     })
+        //     item = null
+        // })
+
+        // function father () {
+        //     var uname = 'wenda'
+        //     function son () {
+        //         console.log('hi'+'----'+uname)
+        //     }
+        //     son()
+        // }  //这是通过作用域链的方式拿到了uname的值
+        // father()
+
+        // function father () {
+        //     var uname = 'wenda'
+        //     return function son () {
+        //         var i = 'hi'+'----'+uname
+        //         return i
+        //     }
+        // }  //这里是因为产生了闭包，因而函数father执行之后，内部变量uname没有被销毁，故而函数son可以拿到这个值
+        // var foo = father()
+        // console.log(foo()) 
+
+        function show () {
+            var uname = 'wenda'
+            console.log(uname)
+        }
+        // console.log(uname)
+    </script>
+</body>
+</html>

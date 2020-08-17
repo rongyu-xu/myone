@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = []
+    for (let i = 1; i < 4; i++) {
+      (function (num) {
+        arr.push(function () {
+          return num
+        })
+      })(i)
+    }  
+    console.log(arr[0]());
+    console.log(arr[1]);
+    // 每次都往数组中添加了一个函数，而外层的自调用函数在每调用一次的时候，就会生成一个函数作用域，这个
+    // 函数作用域内保留了参数，以及给数组增加的函数，可以拆解为：
+    arr.push(function () {
+          return 1
+        })
+    arr.push(function () {
+          return 2
+        })
+    arr.push(function () {
+          return 3
+        })
+  </script>
+</body>
+
+</html>

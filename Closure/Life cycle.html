@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function foo () {
+    //   let n = 1 
+    //   function count () {
+    //     console.log(++n)      
+    //   }
+    //   count()  // 2
+    //   count()  // 3
+    //   count()  // 4
+        // 因为是在函数内部调用，所以变量n自然是一直存在，就相当于foo函数是一个全局，n是一个全局变量
+    // }
+    // foo()  
+    // foo()
+    // 以上不管执行多少次都是打印2,原因是 foo() 函数每执行一次，就会产生一个新的作用域，这些作用域都是互不影响的
+
+
+    // 改造一下：
+    // function foo () {
+    //   let n = 1 
+    //   return function count () {
+    //     console.log(++n)      
+    //   } 
+    // }
+    // foo()
+    // var fn = foo()
+    // fn()  // 2
+    // fn()  // 3
+    // fn()  // 4
+    // 以上代码执行的时候，因为 n 一直在外面被使用，所以n这个变量没有被销毁，
+    // 一直存在，执行一次fn函数，n就累加一次,函数被使用，同作用域下的变量就会保存
+
+    // 再次改造：
+    function foo () {
+      let n = 1 
+      return function show () {
+        let m = 2;
+        function count () {
+          console.log(++m)
+        }   
+        count() 
+      } 
+    }
+    var fn = foo()
+    fn()
+    fn()
+    fn()
+  </script>
+</body>
+</html>
