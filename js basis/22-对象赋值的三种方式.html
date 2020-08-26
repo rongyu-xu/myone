@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 现在写下来，不知道多久又忘了
+    // 平时就会用点语法给对象赋值，从而忘记了还可以中括号，特此记下来
+    
+    // 1.直接定义对象并在对象内赋值
+    var obj = {
+      name: 'wenda',
+      age: 22
+    }
+
+    // 2.通过点语法进行赋值
+    var obj1 = {}
+    obj1.name = 'zs'
+    obj1.age = 24
+
+    // 3.通过中括号的方式赋值
+    var obj2 = {}
+    obj2['name'] = 'ls'
+    obj2['age'] = 33
+    obj2['sing'] = function () {console.log('我会唱歌')}
+    // 值得注意是，使用中括号的时候，属性名需要带引号，而里面如果是变量就不需要了，请看：
+    var i = 'uname'
+    obj2[i] = 'jiajia'
+    console.log(obj2.uname)   // jiajia
+
+    // 其实也可以使用中括号取得对象内部的值，比如上面obj对象
+    console.log(obj['name'])  // wenda
+
+    // 而使用中括号调用对象方法时，语法如下：
+    obj2['sing']()  // 输出我会唱歌
+
+    // 使用中括号的方式可以很灵活的取得对象内的值，也可以很灵活的给对象赋值，这个在遍历对象的时候体现到了
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 输出 1- 100之间的数字  (使用do while循环完成)
+    // var i = 1
+    // do {
+    //   console.log(i)
+    //   i++
+    // } while(i<=20)
+
+    // 2. 将 1-100 之间所有3的倍数求和输出  (使用do while循环完成)
+    var i = 1
+    var sum = 0
+    do {
+      if(i % 3 !== 0) {
+        sum += i
+      }
+      i++
+    }while(i<=100)
+    console.log(sum)
+
+
+  </script>
+</body>
+</html>

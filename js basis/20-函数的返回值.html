@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 今天看到这么一个简单的返回值，虽然不难，还是简单敲一一下
+    // function foo () {
+    //   let a = 1;
+    //   let b = 2
+    //   // 要怎么将这两个值return出去？
+    //   return [a,b]
+    // }
+    // var rel = foo()
+    // for(let i = 0;i < rel.length;i++) {
+    //   console.log(rel[i])
+    // }
+
+    // 写复杂一点
+    function foo () {
+      let a = 1;
+      let b = 2
+      // 要怎么将这两个值return出去？
+      var str = a + ',' + b
+      return str
+    }
+    var rel = foo()
+    var arr = rel.split(',')
+    for(let i = 0;i < arr.length;i++) {
+      console.log(Number(arr[i]))
+    }
+    // 这样写虽然麻烦了一点，但是也是一种思路了
+  </script>
+</body>
+</html>

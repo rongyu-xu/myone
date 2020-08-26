@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.利用循环输出1-20之间所有的值
+    // var num = 1
+    // while (num <= 20) {
+    //   console.log(num)
+    //   // num++
+    //   // num += 1
+    //   ++num
+    // }
+
+    // 2. 将1到100之间的所有是3的倍数的值找出来，在控制台中输出
+    // var num = 1
+    // while (num <= 100) {
+    //   // if(num % 3 === 0) {
+    //   //   console.log(num)
+    //   // }
+    //   num % 3 === 0 ? console.log(num) : null
+    //   num++
+    // }
+
+    // 3. 求1到100之间的数字和。在控制台中输出（5050）
+    // var num = 1
+    // var sum = 0
+    // while (num <= 100) {
+    //   sum = sum + num
+    //   num++
+    // }
+    // console.log(sum)
+
+    // 4. 请将1到50中所有的奇数并求和，在控制台中输出！【输出1-50之间的所有奇数，输出1-50中所有奇数的和
+    var num = 1
+    var sum = 0
+    while (num<=50) {
+      if(num % 2 !== 0) {
+        console.log(num)
+        sum += num
+      }
+      num++
+    }
+    console.log(sum)
+  </script>
+</body>
+</html>

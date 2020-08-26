@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = prompt('请输入第一个值') // 输入一个1
+    var b = prompt('请输入第二个值') // 输入一个2
+    // alert(a+b)  // 打印 12
+    // 说明prompt得到是一个字符类型，所以输出a+b的是就是字符串拼接
+    // 如果想要对输入的两个数值进行相加，那么就要进行数据类型转换
+    a = parseInt(a)
+    b = parseFloat(b)
+    console.log(a+b)  // 3
+  </script>
+</body>
+</html>

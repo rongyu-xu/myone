@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 实现冒泡升序排序
+    var ary = [99, 100, 50, 66, 120];
+    // for(let i = 0;i < ary.length;i++) {
+    //   for(let j = 0;j < ary.length;j++) {
+    //     if(ary[j] > ary[j+1]){
+    //       var c = ary[j]
+    //       ary[j] = ary[j+1]  
+    //       ary[j+1] = c
+    //     }
+    //   }
+    // }
+    // 在这里会有一个疑问，为啥要进行双层循环，这样想，如果只写一个for循环，那么整个排序只会走一遍，第一个和第二个对比完，接着第二个和第三个，依次类推，但是这样走完，两个两个之间并没有都对比，而多次循环之后，就可以保证两两之间都进行对比
+ 
+    // 实现降序排序
+    for(let i = 0;i < ary.length;i++) {
+      for(let j = 0;j < ary.length;j++) {
+        if(ary[j] < ary[j+1]) {
+          var c = ary[j+1]
+          ary[j+1] = ary[j]
+          ary[j] = c
+        }
+      }
+    }
+    console.log(ary)
+  </script>
+</body>
+</html>

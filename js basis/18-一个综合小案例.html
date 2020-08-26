@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 求和的功能: 从字符串中提取对应的数字
+    // var str = prompt('请输入对应数字，以","分割')
+    // var arr = str.split(',')   //split是字符串方法，可以指定分隔符，返回一个数组
+    // var num = 0
+    // for(let i = 0;i < arr.length;i++) {
+    //   num += Number(arr[i])
+    // }
+    // console.log(num) 
+
+    // 2.给一个数字数组，该数组中有很多数字0，将不为0的数据存入到一个新的数组中
+    var ary = [1, 0, 2, 0, 3, 0, 4, 0, 5, 0];
+    var newarr = []
+    for(let i = 0;i < ary.length;i++) {
+      if(ary[i] !== 0) {
+        newarr.push(ary[i])
+      }
+    }
+    console.log(newarr);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var num = '12.01'
+    // var num1 = Number(num)  // 12.01
+    // var num2 = parseInt(num)  // 12
+    // var num3 = parseFloat(num)  // 12.01
+    // console.log(num1,num2,num3);
+    
+    // var num = '12.01abc'
+    // var num1 = Number(num)  // NAN
+    // var num2 = parseInt(num)  // 12
+    // var num3 = parseFloat(num)  // 12.01
+    // console.log(num1,num2,num3);
+
+
+    var num = 'abc12.01'
+    var num1 = Number(num)  // NAN
+    var num2 = parseInt(num)  // NAN
+    var num3 = parseFloat(num)  // NAN
+    console.log(num1,num2,num3);
+
+    // 其实转换过程中，并不简单，只是要通俗的理解的话，就是：
+    //     + Number可以保留原来的值，不会移除小数点，只要有不是数字的就会转换为NAN
+    //     + parseInt只会保留整数，只要第一个是数字，就不会返回NAN
+    //     + parseFloat在数据类型转换的时候,遇到非数字也可以保留原来的数字部分，转换成浮点数值，所谓浮点数值，就是该数值中必须包含一个小数点，并且小数点后面必须至少有一位数字
+  </script>
+</body>
+</html>

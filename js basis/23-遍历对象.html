@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: 'wenda',
+      age: 22,
+      sing: function () {
+        console.log(this.name)
+      }
+    }
+    for(key in obj) {
+      console.log(key)
+      console.log(obj[key])
+    }
+    // 循环对象的时候，key就是对象中每一个属性名，其实可以理解为i，这样理解不恰当，但是这样理解起来会容易很多，而想取得对象属性对应的值，那么就是obj[key],可以理解为arr[i],这样应该很好理解了
+    // 值得注意的是，这里要是使用点语法，就不行，因为 obj.key是给对象赋值一个名为key的属性，而不是取值
+  </script>
+</body>
+</html>

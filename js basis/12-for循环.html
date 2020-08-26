@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-right: 1px solid #cccccc;
+      border-bottom: 1px dashed palegreen;
+      border-collapse: collapse;
+    }
+    td {
+      border-left: 1px solid gold;
+      border-top: 1px dashed goldenrod;
+      width: 90px;
+      height: 30px;
+      text-align: center;
+    }
+    tr:nth-child(odd) {
+      background-color: pink;
+    }
+    tr:nth-child(even) {
+      background-color: powderblue;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // 1. 将 1 到 100 之间的所有数字输出到控制台中
+    // for(var i = 0;i <= 20;i++) {
+    //   console.log(i)
+    // }
+
+    // 2. 将1到100之间的所有是3的倍数的值找出来，在控制台中输出
+    // for(var i = 1;i<=100;i++){
+    //   if(i % 3 === 0) {
+    //     console.log(i)
+    //   }
+    // }
+
+    // 3. 求1到100之间的数字和。在控制台中输出（5050） 
+    // var sum = 0
+    // for(let i = 0;i <= 100;i++) {
+    //   sum += i
+    //   // console.log(sum)
+    // }
+    // console.log(sum)
+
+    // 4.在页面中打印五行 , 每行中有10颗 *
+    // for(let i = 0;i < 5;i++) {
+    //   for(let j = 0;j <= 10;j++) {
+    //     document.write('*')
+    //   }
+    //   document.write('<br>')
+    // }
+
+    // 5. 在页面中打印直角三角形
+    // 就是将外层数值当做内层循环范围
+    // for(let i = 0;i < 10;i++) {
+    //   for(let j = 0;j < i;j++) {
+    //     document.write('☆')
+    //   }
+    //   document.write('<br>')
+    // }
+
+    // 6.在页面中打印99乘法表: 本质上与三角形的做法一样
+    document.write('<table>')
+    for(let i = 1;i < 10;i++) {
+      document.write('<tr>')
+      for(let j = 1;j <= i;j++) {
+        document.write('<td>' + i + 'x' + j + '='+ i*j + '</td>')
+        // document.write(i + 'x' + j + '&nbsp;')
+      }
+      document.write('</tr>')
+    }
+    document.write('</table>')
+  </script>
+</body>
+</html>

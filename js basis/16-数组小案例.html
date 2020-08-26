@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 求数组平均值
+    // var arr = [100,500,600,400]
+    // var sum = 0
+    // for(let i = 0;i < arr.length;i++) {
+    //   sum += arr[i]
+    // }
+    // var rel = sum / arr.length
+    // console.log(rel)  // 400
+
+    // 没记错的话求数组和有一个方法
+    // var rel = arr.reduce(function(i1,i2,i3,i4) {
+    //   return i1+i2
+    // })
+    // console.log(rel)  // 1600
+
+    // 给一个不重复的数字数组，求最大值和最大值的在数组中的位置
+    // 思路是先假设一个最大值，然后循环逐个与之对比
+    var ary = [2, 400, 3, 5, 7, 10];
+    var max = ary[0]
+    var max_index = 0
+    for(let i = 0;i < ary.length;i++) {
+      if (ary[i] > max) {
+        max = ary[i]
+        max_index = i
+      }
+    }
+    console.log(max)
+    console.log(max_index)
+  </script>
+</body>
+</html>

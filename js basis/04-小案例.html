@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 利用prompt接收用户输入的两个值，判断大小
+    var val1 = prompt('请输入第一个值')
+    var val2 = prompt('请输入第二个值')
+    // 先判断是不是NaN,在进行数值转换
+    if(isNaN(val1) === false && isNaN(val2) === false ) {
+      if(parseInt(val1) > parseInt(val2)) {
+        alert('最大值为' + val1);
+      }else {
+        alert('最大值为' + val2);
+      }
+    }else {
+      alert('请输入正确数值');
+    }
+  </script>
+</body>
+</html>

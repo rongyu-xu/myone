@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Fn (name,age)  {
+      this.uname = name
+      this.age = age
+    }
+    var zs = new Fn('zs',12)
+    var ls = new Fn('ls',17)
+    console.log(zs)
+    console.log(ls)
+
+    //总结: 通过自定义构造函数创建对象的几个必须的细节
+		//1. 自定义构造函数(系统内置的构造函数) ----> 本质上都是学过的函数
+		//2. 在自定义构造函数中,必须使用 this 关键字, 不要再用 Object()
+		//3. 构造函数命名规则按照帕斯卡命名(首字母大写), 普通函数按照驼峰命名(首字母小写,后面单词大写)
+		//4. 构造函数的名称一般以名词出现,普通函数一般以动词出现
+		//5. 如果要通过构造函数创建对象(不管是内置的还是我们自定义的) 都必须 加 new 关键字
+		//6. new 关键字就是用来调用构造函数创建对象的
+  </script>
+</body>
+</html>

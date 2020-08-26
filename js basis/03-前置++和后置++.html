@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var a
+    // var b = 2
+    // a1 = b++
+    // a2 = ++b
+    // console.log(a1)  // 2
+    // console.log(a2)  // 4
+    // console.log(b)  // 4
+    // 简单说一下上面的执行过程，a1的时候，b先将值2赋值給a1，再进行++，执行完之后b=3，到了a2的时候，b先++，得到4，在将4赋值給a2
+
+    // eg:
+    // var a = 1; var b = ++a + ++a
+    // console.log(b)  // 5
+
+    // var a = 1; var b = a++ + ++a;
+    // console.log(b)  // 4
+
+    var a = 1; var b = ++a + a++;   
+    console.log(b);   // 4
+  </script>
+</body>
+</html>

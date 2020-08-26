@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 对于continue和break这两个关键字，很多人写过解释，其实要简单理解一下不会很难
+    // for(let i = 0;i < 6;i++) {
+    //   if(i<3) break
+    //   console.log(i)
+    // }  // 什么都不输出
+    // for(let i = 0;i < 6;i++) {
+    //   if(i<3) continue
+    //   console.log(i)
+    // }  // 输出 3 4 5
+
+    // 看以上两段代码，利用break的时候，就什么都不打印，这是因为，满足条件之后，执行了break，而break会直接跳出循环，故而整个循环就不执行了，但是使用continue，只会打断当前循环，也就是说当i=1,2，3的时候，只会跳出当前的循环，继而往下走，也就是会走到i=4,5这两个循环，再简单写一个用continue的代码：
+     
+    // 你要输出1-20之间所有的数字，但是你又不想输出3的倍数，那么就可以用到continue
+    for(let i = 1;i <= 20;i++) {
+      if(i % 3 === 0) break
+      console.log(i)
+    } // 输出1 2 4 5 7 8 10 11 13 14 16 17 19 20
+    // 但是使用break就不行了
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.一个加油站为了鼓励车主多加油，所以加的多有优惠。
+    // 92号汽油，每升6元；如果大于20升，那么超出部分每升5.9；
+    // 95号汽油，每升7元；如果大于30升，那么超出部分每升6.95
+    // 编写JS程序，用户输入自己的汽油编号，然后输入自己加多少升，弹出价格。
+
+    var type = Number(prompt('请输入汽油类型'))
+    var price = Number(prompt('请输入所需量'))
+   if(type == 95){
+      if(price > 30) {
+        alert((price - 30) * 6.95 + 210);
+      }else if(price <= 30){
+        alert(price * 7);
+      }
+    }else if(type == 92) {
+      if(price > 20) {
+        alert((price - 30) * 5.9 + 120);
+      }else if(price <= 20){
+        alert(price * 7);
+      }
+    }else {
+      alert('汽油类型只有92或者95')
+    } 
+  </script>
+</body>
+</html>

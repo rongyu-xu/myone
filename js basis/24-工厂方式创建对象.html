@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function foo (name,age) {
+      var obj = new Object()
+      obj.name = name;
+      obj.age = age
+      obj.way = function () {
+        console.log(this.name)
+      }
+      return obj
+    }
+    var zs = foo('zs',18)
+    var ls = foo('ls',10)
+    zs.way()
+    console.log(zs)
+
+    // 简单理解，利用工厂方式创建对象，就是在一个函数体内定义一个对象，给这个对象赋值，然后返回这个对象
+  </script>
+</body>
+</html>
