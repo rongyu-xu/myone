@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 对给定的数组进行去重和排序
+    var arr = [5,2,3,6,8,6,5,4,15,5,7,7,1,9,25]
+    var key
+    var obj ={}
+    for(let i = 0;i < arr.length;i++) {
+      key = arr[i]
+      if(obj[key]) {
+        obj[key]++
+      }else {
+        obj[key] = 1
+      }
+    }
+    console.log(obj)
+    // var ary = Object.keys(obj) //获取对象中所有的属性
+    var ary = []
+    for(index in obj) {
+      // console.log(index);
+      
+      ary.push(Number(index))
+    }
+    console.log(ary)
+
+    // 浏览器内部会对对象中的数字类型的属性名进行排序，所以不用自己排序
+
+    // 还有一个更简单的方法
+    var arr1 = [5,2,3,6,8,6,5,4,15,5,7,7,1,9,25]
+    let set = [...new Set(arr1)]
+    // console.log(set)  // 得到一个为排序的去重了的数组，set就是可以用来去重
+    var ary1 = set.sort((item,index) => {
+      return item - index
+    })
+    console.log(ary1)
+  </script>
+</body>
+</html>

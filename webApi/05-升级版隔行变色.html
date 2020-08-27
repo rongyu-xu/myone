@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1这是一个寂寞的天</li>
+    <li>2这是一个寂寞的天</li>
+    <li>3这是一个寂寞的天</li>
+    <li>4这是一个寂寞的天</li>
+    <li>5这是一个寂寞的天</li>
+    <li>6这是一个寂寞的天</li>
+    <li>7这是一个寂寞的天</li>
+    <li>8这是一个寂寞的天</li>
+    <li>9这是一个寂寞的天</li>
+    <li>10这是一个寂寞的天</li>
+    <li>11这是一个寂寞的天</li>
+    <li>12这是一个寂寞的天</li>
+    <li>13这是一个寂寞的天</li>
+    <li>14这是一个寂寞的天</li>
+    <li>15这是一个寂寞的天</li>
+    <li>16这是一个寂寞的天</li>
+    <li>17这是一个寂寞的天</li>
+    <li>18这是一个寂寞的天</li>
+    <li>19这是一个寂寞的天</li>
+    <li>20这是一个寂寞的天</li>
+  </ul>
+  <script>
+    let liArr = document.getElementsByTagName('li');
+    let oldColor;
+    for(let i = 0;i < liArr.length;i++) {
+      if(i % 2 ===0){
+        liArr[i].style.backgroundColor = 'red';
+      }else {
+        liArr[i].style.backgroundColor = 'pink';
+      }
+      liArr[i].onmouseover = function () {
+        oldColor = this.style.backgroundColor
+        this.style.backgroundColor = 'gold'
+      }
+      liArr[i].onmouseout = function () {
+        this.style.backgroundColor = oldColor
+      }
+    }
+    // 实现的思路就是，定义一个变量，用来保存原始的值，鼠标移出的时候再把这个值赋值回去
+
+  </script>
+</body>
+</html>

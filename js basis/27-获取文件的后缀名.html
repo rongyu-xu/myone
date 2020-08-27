@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = 'pingxinjnqi.word'
+    var index = str.lastIndexOf('.')
+    var rel = str.slice(index)
+    console.log(rel)
+    // 利用lastIndexOf()找到开始截取的位置，然后利用slice截取
+    
+    
+    
+    // 顺带在这里提一下，slice也可以截取数组
+    // eg：
+    var arr = ['wenda',12,'hello',55]
+    var res = arr.slice(1)  
+    console.log(res) // 包含开始位置  [12, "hello", 55]
+    // var res1 = arr.slice(1,2)  第二个为结束位置，但是截取的时候不包含结束位置
+    console.log(res1)   // [12]
+
+
+    // 这里是突然想到数组查找位置的方法，就记录一下
+    // var arr = ['wenda',12,'hello',55]
+    // var num = arr.findIndex(function(item) {
+    //   return item === 12
+    // })
+    // console.log(num)
+  </script>
+</body>
+</html>

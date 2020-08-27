@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = 'kdshfgkwndslhglhfs'
+    // 要求出这个字符串每个字符统计的次数，应该是要用到对象，将每个出现的字符赋值给一个对象,
+    // 而且是通过中括号的方式，所以也要先定义一个变量
+    var obj = {}
+    var key
+    for(let i = 0;i < str.length;i++) {
+      var key = str[i]
+      if(obj[key]) {
+        obj[key]++
+      }else {
+        obj[key] = 1
+      }
+    }
+    for(index in obj) {
+      var rel = index + ':' + obj[index]
+      console.log(rel)
+    }
+    // 简单理解一下，最主要的就是利用对象中括号赋值取值的性质，obj[key]要是存在，就会返回true，而obj[key] = 1,就是给给key这个属性赋值，在循环中，不断给key赋值，在赋值给obj，最后循环对象，得到最后结果
+  </script>
+</body>
+</html>

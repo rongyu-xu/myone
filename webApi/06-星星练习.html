@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    img {
+      margin-top: 100px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img src="./img/yellow.png" />
+  <img src="./img/yellow.png" />
+  <img src="./img/yellow.png" />
+  <img src="./img/yellow.png" />
+  <img src="./img/yellow.png" />
+
+  <script>
+    var imgs = document.getElementsByTagName('img');
+    for(let i = 0;i < imgs.length;i++) {
+      
+      imgs[i].onclick = function () {
+        for(let j = 0;j < imgs.length;j++) {
+          imgs[j].src = './img/yellow.png'
+        }
+        // console.log(123)
+        this.src = './img/green.png'
+      }
+    }
+    // 这个就是练习排他思想
+  </script>
+</body>
+</html>

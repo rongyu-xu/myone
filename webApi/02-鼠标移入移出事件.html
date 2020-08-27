@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color:pink;
+      margin: 200px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    var box = document.getElementById('box');
+    box.onmouseover = function () {
+      this.style.transform = 'scale(2)';
+      // this.style.width = '400px';
+      // this.style.height = '400px';
+      console.log(123)
+    }
+    box.onmouseout = function () {
+      this.style.transform = 'scale(1)';
+      // this.style.width = '200px';
+      // this.style.height = '200px';
+    }
+
+    // box.onmouseenter = function () {
+    //   this.style.transform = 'scale(2)';
+    // }
+    // box.onmouseleave = function () {
+    //   this.style.transform = 'scale(1)';
+    // }
+
+    // box.onmousemove = function () {
+    //   this.style.width = '400px';
+    //   this.style.height = '400px';
+    // console.log(123)
+    // }
+
+    // 主要复习一下鼠标移入移出事件，如果改动宽高，效果不好看，使用scale的话，就会从中心扩散开，
+
+
+    // 以上写了两个鼠标移入移出事件，要记住，要两两配合使用，不能混合使用，还有一个关键区别就是 onmouseenter和onmouseleave不会触发事件冒泡，切记
+
+    // onmonsedown事件： 鼠标按下时触发
+    // onmouseup事件： 鼠标按钮松开时触发
+    // onmousemove事件和onmouseover事件差不多，但是区别在于，onmousemove事件，只要鼠标在指定区域内就会一直触发，而onmouseover事件只会在进入的时候触发一次
+
+  </script>
+</body>
+</html>

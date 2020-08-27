@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+  </ul>
+
+  <div class="demo">
+    这是一个寂寞的天1
+  </div>
+  <div class="nav">
+    <div class="demo flag">
+      这是一个寂寞的天2
+    </div>
+  </div>
+
+  <input type="text">
+  <input type="radio">
+  <input type="checkbox">
+
+  <ul>
+    <li>这是一个寂寞的天1</li>
+    <li>这是一个寂寞的天2</li>
+    <li>这是一个寂寞的天3</li>
+    <li>这是一个寂寞的天4</li>
+    <li>这是一个寂寞的天5</li>
+  </ul>
+  <script>
+    // 以下是关于隔行变色的代码
+    var odd = document.querySelectorAll('li:nth-child(odd)');
+    var even = document.querySelectorAll('li:nth-child(even)');
+    for (let i = 0; i < odd.length; i++) {
+      odd[i].style.background = 'red'
+      even[i].style.background = 'pink'
+    }
+
+    // 为此在写几个关于querySelectorAll的获取元素的方法，如下：
+        // let demo = document.querySelector('.nav .demo');// 后代
+        // let demo = document.querySelector('.nav>.demo');// 子代
+        // let demo = document.querySelector('.demo.flag');// 交集
+
+        let inputText = document.querySelector('input[type=text]');
+        let li2 = document.querySelector('ul li:nth-child(2)');
+  </script>
+</body>
+
+</html>
