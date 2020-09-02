@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <p>床前明月光</p>
+
+    <p id="tag">举头望明月</p>
+
+    <p id="replace">以上是李白的静夜思</p>
+    <hr>
+    <button id="btn">添加诗句</button>
+    <script>
+      let tag = document.getElementById('tag');
+      let btn = document.getElementById('btn');
+      let box = document.getElementById('box');
+      let replace = document.getElementById('replace');
+      btn.onclick = function () {
+        let newp = document.createElement('p');
+        newp.innerText = '疑是地上霜';
+        box.insertBefore(newp, tag);
+        let againp = document.createElement('p');
+        againp.innerText = '低头思故乡';
+        box.insertBefore(againp, tag.nextElementSibling);
+        let repBox = document.createElement('p');
+        repBox.innerText = '你想念李白吗';
+        box.replaceChild(repBox, replace)
+      }
+
+      // 所用的知识点：
+        // + 创建元素document.createElement
+        // + 追加元素的方法 insertBefore，该方法接受两个参数，一个个为要追加的元素，第二个为插入到什么位置
+        // + nextElementSibling 获得下一个兄弟元素
+        // + 替换元素 replaceChild(新元素,旧元素)，需要父盒子调用
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      width: 30%;
+      margin: 20px auto;
+      cursor: pointer;
+      border-top: 1px solid gold;
+      border-right: 1px solid gold;
+      border-collapse: collapse;
+    }
+
+    td {
+      border-left: 1px solid gold;
+      border-bottom: 1px solid gold;
+      height: 40px;
+      width: 200px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #0094ff;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>请输入姓名</td>
+      <td><input type="text" name="" id="uname"></td>
+    </tr>
+    <tr>
+      <td>请输入邮箱</td>
+      <td><input type="text" name="" id="email"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button id="btn" style="width: 40px;">添加</button></td>
+    </tr>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="tb">
+    <tbody id='tbodyObj'>
+      <tr>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>操作</th>
+      </tr>
+    </tbody>
+  </table>
+  <a href=""></a>
+  <script>
+    let iptName = document.getElementById('uname');
+    let iptEmail = document.getElementById('email');
+    let tb = document.getElementById('tbodyObj');
+    let btn = document.getElementById('btn');
+    btn.onclick = function () {
+      let valName = iptName.value.trim();
+      let valEmail = iptEmail.value.trim();
+      let trBox = document.createElement('tr');
+      trBox.innerHTML = `
+        <td>${valName}</td>
+        <td>${valEmail}</td>
+        <td>
+          <a href="#" onclick="delTr(this)">删除</a>
+          <a href="#" onclick="moveUp(this)">上移</a>
+          <a href="#" onclick="moveDown(this)">下移</a>
+        </td>
+      `;
+      tb.appendChild(trBox)
+      iptEmail.value = '';
+      iptName.value = '';
+    }
+    function delTr (rel) {
+      if (!confirm('确定要删除吗')) {
+        return;
+      }
+      let father = rel.parentElement.parentElement;
+      tb.removeChild(father)
+    }
+    function moveUp (rel) {
+      // 先判断是否在第一行
+      let trobj = rel.parentElement.parentElement;
+      if (trobj == tb.children[1]) {
+        alert('我已经是第一个了');
+        return;
+      } 
+      // 找到上一个元素
+      let prv = trobj.previousElementSibling;
+      tb.insertBefore(trobj, prv)
+    }
+    function moveDown (rel) {
+      // 先判断是否在最后一行
+      let trobj = rel.parentElement.parentElement;
+      if (trobj == tb.lastElementChild) {
+        alert('我已经是最后一个了');
+        return;
+      }
+      // 找到下一个兄弟元素
+      let next = trobj.nextElementSibling;
+      tb.insertBefore(next,trobj)
+    }
+
+    // 先总结一下用到的知识点：
+        // + parentElement 获取父元素
+        // + previousElementSibling 获取上一个兄弟元素
+        // + nextElementSibling 获取下一个兄弟元素
+        // + insertBefore 追加元素的方法，也可以用来调整位置
+    
+    // 总结一下整体思路：
+      // 点击添加的时候，获取到输入框的值，再追加到下一个表格中，其实最关键的在于this，你点击删除，上移，下移，怎么知道删除的是当前行？因为这是并没有对应的id或者其他可以确定当前元素的值，但是this是谁调用就指向谁，把this作为参数进行传递，谁点击了，自然就指向当前元素
+  </script>
+</body>
+
+</html>

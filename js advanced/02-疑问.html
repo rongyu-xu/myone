@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 今天有这么一个疑问，构造函数可以直接访问其原型对象上的方法吗？
+    function Person () {
+    }
+    // Person.prototype.sing = function () {
+    //   console.log('我会唱歌')
+    // }
+    // Person.sing()  // 报错
+    // 傻了，既然构造函数也是一个对象，而这个对象上并没有sing这个方法，上面那么写肯定报错，而利用prototype作为中介，自然就可以访问到这个方法了，类似于 {}.{}.xxx
+    let o = new Person();
+    Person.prototype = {
+      sex:'nan',
+      sing: function () {console.log(this.sex)},
+      dance: function () {console.log('我不会跳舞')}
+    }
+    console.log(o.__proto__);
+    o.sing()
+    console.log(Person.prototype.constructor)
+  </script>
+</body>
+</html>

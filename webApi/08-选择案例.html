@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>请选择你喜欢的性别</h1>
+  <input type="checkbox"> 男 <br>
+  <input type="checkbox"> 女 <br>
+  <input type="checkbox"> 不男不女
+  <hr>
+  <button id="all">全选</button>
+  <button id='notAll'>全不选</button>
+  <button id="reverse">反选</button>
+  <script>
+    let all = document.getElementById('all');
+    let bothNo = document.getElementById('notAll');
+    let reserve = document.getElementById('reverse');
+    let ipt = document.getElementsByTagName('input');
+    all.onclick = function () {
+      for(let i = 0;i < ipt.length;i++) {
+        ipt[i].checked = true
+      }
+    }
+    bothNo.onclick = function () {
+      for(let i = 0;i < ipt.length;i++) {
+        ipt[i].checked = false;
+      }
+    }
+    reserve.onclick = function () {
+      for(let i = 0;i < ipt.length;i++) {
+        ipt[i].checked = !ipt[i].checked;
+      }
+    }
+    // 这个主要是练习一下  取反
+  </script>
+</body>
+</html>

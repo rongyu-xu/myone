@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [16,56,89,65,22,18];
+    var ary = [];
+    arr.some(function (value,index) {
+      if(value == 89) {
+        ary.push(value);
+        return true;
+      }
+    })
+    console.log(ary);  // [89]
+   
+    // some方法本来返回的是一个布尔值，但是我们又想得到符合条件的那个值，那么就可以像上面那样改造一下some方法其中，不写return true;那么函数就没有终止条件，就会一直循环整个数组，直到结束，加上之后，找到符合条件的值之后，就不会继续循环
+      
+  </script>
+</body>
+</html>

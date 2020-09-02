@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 100px auto;
+      border-top: 1px #ccc solid;
+      border-right: 1px #ccc solid;
+      /* 合并单元格的边框线 */
+      border-collapse: collapse;
+      width: 500px;
+    }
+
+    th,
+    td {
+      border-left: 1px #ccc solid;
+      border-bottom: 1px #ccc solid;
+    }
+
+    th {
+      background-color: #0099cc;
+      color: #fff;
+      height: 24px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th><input type="checkbox" name="" id="checkAll" />全选/全不选</th>
+      <th>菜名</th>
+      <th>商家</th>
+      <th>价格</th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="check" /></td>
+      <td>红烧肉</td>
+      <td>隆江猪脚饭</td>
+      <td>￥200</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" />
+      </td>
+      <td>香酥排骨</td>
+      <td>隆江猪脚饭</td>
+      <td>￥998</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" />
+      </td>
+      <td>北京烤鸭</td>
+      <td>隆江猪脚饭</td>
+      <td>￥88</td>
+    </tr>
+  </table>
+  <script>
+    let checkAll = document.getElementById('checkAll');
+    let ipts = document.getElementsByName('check');
+    checkAll.onclick = function () {
+      for (let i = 0; i < ipts.length; i++) {
+        ipts[i].checked = !ipts[i].checked
+      }
+    }
+    // for(let i = 0;i < ipts.length;i++) {
+    //   ipts[i].onclick = function () {
+    //     // 实现思路就是先假设全选框为true，然后对下面的选择框进行逐一判断，有一个为false，那么假设就失败了
+    //     checkAll.checked = true
+    //     for(let j = 0;j < ipts.length;j++) {
+    //       if(ipts[j].checked === false) {
+    //         checkAll.checked = false;
+    //         break;
+    //       };
+    //     };
+    //   };
+    // }
+
+    // 还可以这样实现：
+    // 记录每个选框的状态，如果所有的都为true，那么全选框就选中
+    
+    for (let i = 0; i < ipts.length; i++) {
+      ipts[i].onclick = function () {
+        let count = 0;
+        for (let j = 0; j < ipts.length; j++) {
+          if (ipts[j].checked === true) {
+            count++
+          }
+        }
+        if (count == ipts.length) {
+          checkAll.checked = true;
+        } else {
+          checkAll.checked = false;
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

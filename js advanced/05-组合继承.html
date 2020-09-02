@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Father (uname,age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    Father.prototype.sing = function () {
+      console.log('我会唱歌')
+    }
+    function Son (uname,age) {
+      Father.call(this,uname,age);
+    }
+    Son.prototype = new Father;
+    Son.prototype.constructor = Son;
+    var obj = new Son('wenda',22);
+    var obj1 = new Son('zs',24);
+    console.log(obj);
+    console.log(obj1);
+    obj.sing();
+    obj1.sing();
+    // 这个的关键主要是，给子类原型对象添加方法。不会影响父类的原型对象，就是实现了互不影响
+  </script>
+</body>
+</html>

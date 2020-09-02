@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 先理解一下成员的概念，所谓成员，就是对象中的属性和方法，叫法不同而已，我们都知道，对象是键值对的无序排列，里面的内容可以叫  键值对，也可以叫 属性名和属性值，再就是可以叫 成员
+    // 还有一个概念，对象中的都是属性，这个是没有错的，也许会问，那对象中的方法呢？比如下面的代码：
+    // var obj = {
+    //   name: 'wenda',
+    //   age: 12,
+    //   sing: function () {
+    //     console.log('我会唱歌')
+    //   }
+    // }
+    // console.log(obj.sing) // 此时不加括号，就等于是把sing这个函数当做值来访问，而sing就是属性
+
+
+    // 回到成员上面来，构造函数中，有两种成员类型，一种是实例成员，一种是静态成员
+        // + 静态成员，就是通过构造函数直接点添加的属性，只能由构造函数调用
+        // + 实例成员，就是构造函数内部的成员（属性），就是一开始就存在{}里面，只能有实例对象进行调用
+    // 为了更好理解静态成员和实例成员，请看下面代码：
+    function Person (name,age) {
+      this.name = name;
+      this.age = age;
+      this.sing = function () {
+        console.log('我会唱歌')
+      }
+    }
+    var o = new Person('wenda', 22)
+    Person.sex = '男'
+    console.log(o.constructor.sex)
+    // console.log(o.sex) // underfind 原因在于，sex是静态成员，Person的实例不可以进行调用
+   console.log(Person.age)  // underfind age 是实例成员，构造函数不可以进行调用
+
+  //  在这里可以顺带提一下new的执行过程，new的执行经历4个过程
+  //     + 1.先在内存中开辟一个新的对象空间
+  //     + 2.让this指向这个新开辟的空间
+  //     + 3.调用构造函数内部的代码，给这个新对象添加上属性
+  //     + 4.把这个对象赋值给定义好的变量
+  // 通过其中也可以简单理解一下为啥实例成员不可以通过构造函数来调用，静态成员也不可以通过实例对象调用,因为两者分属于两个不同的对象，但是通过原型链，实例对象是可以访问到，如第35行的代码，机会正常输出 男，原型链的具体概念，后面的代码会有详细解释
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 找到下列数组中的最大值
+    var arr = [
+      [25,65,21,14,11],
+      [55,12,78,45,118],
+      [584,564,2,56,20]
+    ]
+    // var max = arr[0][0]
+    // for(var i = 0;i < arr.length;i++) {
+    //   for(let j = 0;j < arr[i].length;j++) {
+    //     if (arr[i][j] > max) {
+    //       max = arr[i][j];
+    //     }
+    //   }
+    // }
+    // console.log(max);
+
+    var ary = null;
+    for(let i = 0;i < arr.length;i++) {
+      ary = Math.max(...arr[i])
+    }
+    console.log(ary)
+  </script>
+</body>
+</html>

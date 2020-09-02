@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      width: 1000px;
+      height: 475px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    .tab {
+      list-style: none;
+      border: 1px solid #ddd;
+      border-bottom: 0;
+      height: 36px;
+      width: 320px;
+    }
+
+    .tab li {
+      float: left;
+      width: 80px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      color: red;
+      cursor: pointer;
+      position: relative;
+      border-top: 4px solid #fff;
+    }
+
+    .tab .active {
+      border-top: 4px solid red;
+    }
+
+    .tab span {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background: #ddd;
+      width: 1px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .products {
+      width: 1002px;
+      height: 476px;
+      border: 1px solid gold;
+    }
+
+    .main {
+      display: none;
+    }
+
+    .selected {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul class="tab">
+      <li class="tab-item active">国际大牌<span>◆</span></li>
+      <li class="tab-item">国妆名牌<span>◆</span></li>
+      <li class="tab-item">清洁用品<span>◆</span></li>
+      <li class="tab-item">男士精品</li>
+    </ul>
+
+    <div class="products">
+      <div class="main selected">
+        <a href="javascript: void(0)"><img src="img/guojidapai.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="javascript: void(0)"><img src="img/guozhuangmingpin.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="javascript: void(0)"><img src="img/qingjieyongpin.jpg" alt="" /></a>
+      </div>
+      <div class="main">
+        <a href="javascript: void(0)"><img src="img/nanshijingpin.jpg" alt="" /></a>
+      </div>
+    </div>
+    <script>
+      let lis = document.getElementsByTagName('li');
+      let mains = document.getElementsByClassName('main');
+      for(let i = 0;i < lis.length;i++) {
+        lis[i].onmouseover = function () {
+          for(let j = 0;j < lis.length;j++) {
+            lis[j].className = 'tab-item';
+            mains[j].className = 'main';
+          }
+          this.className = this.className + ' active'
+          mains[i].className += ' selected'
+        }
+      }
+      // 值得注意的是，类名拼接的时候，由于两个类名之间需要加上空格隔开，所以在拼接的时候，要自己主动加上空格
+    </script>
+</body>
+
+</html>

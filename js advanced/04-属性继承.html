@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person (uname, age) {
+      // 这里的this指向实例对象，也就是  new Father()
+      this.uname = uname;
+      this.age = age;
+    };
+    function Son (uname, age) {
+      // 通过call改变this指向，指向Son的实例对象
+      Person.call(this,uname,age)
+    }
+    var obj = new Son('wenda',18)
+    console.log(obj)
+  </script>
+</body>
+</html>

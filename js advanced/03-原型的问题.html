@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Father () {
+    };
+    Father.prototype = {
+      name: 'wenda',
+      color: ['red', 'blue', 'yellow'],
+      sing: function () {console.log('我会唱歌')}
+    }
+    var obj = new Father();
+    obj.color.push('gold');
+    var obj1 = new Father();
+    console.log(obj.color);
+    console.log(obj1.color);
+
+    // 由上面的代码可以看出，当obj往color数组中添加值的时候，会影响后面的实例对象，这是由于原型中所有的方法和属性是共享导致的，但是复杂类型的数据保存的是一个地址，每一个实例都共享这个地址，一个实例改变其中的值，自然就会影响其他的值
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        .box {
+            width: 600px;
+            height: 40px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #txt {
+            width: 498px;
+            height: 38px;
+            border: 1px solid red;
+            font-size: 20px;
+            vertical-align: middle;
+            outline: none;
+        }
+
+        #search {
+            width: 100px;
+            height: 40px;
+            background-color: red;
+            vertical-align: middle;
+        }
+
+        #keywords {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 500px;
+        }
+
+        li {
+            line-height: 24px;
+        }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="top">
+        <input type="text" id="txt" /><input type="button" value="search" id="search" />
+    </div>
+    <ul id="keywords">
+        <!-- 这里显示匹配信息区域 -->
+    </ul>
+    <script>
+      // 1. 先提前准备假数据
+      let keywords = ["吴sir", "孟强", "吴sir与孟强的故事", "孟强同学", "孟强是个大佬", "群姐牛逼", "吴sir主播生涯", "吴sir你号没了", "高鹏的爱情故事", "高鹏", "社会王", "隔壁老王"];
+
+      let box = document.getElementById('box');
+      let ipt = document.getElementById('txt');
+      let btn = document.getElementById('search');
+      let ulbox = document.getElementById('keywords');
+      let oldColor;
+      
+      ipt.onkeyup = function () {
+        // console.log(123)
+        let text = this.value.trim()
+        ulbox.innerHTML = ''
+        if(text === '') {
+          return
+        }
+        createLi(text)
+      }
+      function createLi (val) {
+        // console.log(val)
+        for(let i = 0;i < keywords.length;i++) { 
+          if(keywords[i].indexOf(val) !== -1) {
+            // console.log(val)
+            let lis = document.createElement('li');
+            lis.innerText = keywords[i];
+            ulbox.appendChild(lis)
+            lis.onmouseover = function () {
+              oldColor = this.style.background;
+              this.style.background = 'gold';
+            }
+            lis.onmouseout = function () {
+              this.style.background = oldColor;
+            }
+          }
+          
+        }
+      }
+    </script>
+</div>
+</body>
+</html>

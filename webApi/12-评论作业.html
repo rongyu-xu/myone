@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .content {
+      height: 120px;
+      padding: 10px;
+      border: 1px solid red;
+    }
+
+    .commens {
+      padding: 10px;
+      border: 1px solid green;
+    }
+
+    .commens div {
+      padding: 5px 8px;
+      border-bottom: 1px dashed #666;
+    }
+
+    .commens div span {
+      /* border: 1px solid #0094ff; */
+      cursor: pointer;
+      float: right;
+      font-weight: bolder;
+    }
+
+    .add {
+      width: 780px;
+      margin: 0 auto;
+      margin-top: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      padding-bottom: 60px;
+    }
+
+    textarea {
+      display: block;
+      width: 760px;
+      margin: 0 auto;
+      height: 120px;
+      resize: none;
+    }
+
+    input[type="button"] {
+      float: right;
+      padding: 10px 14px;
+      margin-top: 10px;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <div class="content">
+      今天去了一个很神奇的地方，看照片能猜出来是哪里吗？<br />
+      今天去了一个很神奇的地方，看照片能猜出来是哪里吗？
+    </div>
+    <div class="commens" id="commens">
+      <div>评论：</div>
+      <div>测试用的内容，点击删除无效~~~~<span>X</span></div>
+
+    </div>
+  </div>
+  <div class="add">
+    <textarea name="" id="txtComment"></textarea>
+    <!-- 文本域: 提供给用户输入大段文本的标签 -->
+    <input type="button" value="发表" id="btnOk" />
+  </div>
+  <script>
+    let textarea = document.getElementById('txtComment');
+    let btn = document.getElementById('btnOk');
+    let doit = document.getElementById('commens');
+    btn.onclick = function () {
+      let text = textarea.value.trim();
+      // console.log(text)
+      let newBox = document.createElement('div');
+      newBox.innerHTML = text;
+      let close = document.createElement('span');
+      close.innerHTML = 'X';
+      newBox.appendChild(close);
+      doit.appendChild(newBox);
+      close.onclick = function () {
+        doit.removeChild(this.parentElement)
+      }
+      textarea.value = '';
+    }
+    // 最主要的知识点就是：
+        // 创建元素  document.createElement()
+        // 往盒子里追加元素 appendChild
+        // 删除子元素 removeChild
+        // 获取父元素 parentElement
+  </script>
+</body>
+
+</html>
